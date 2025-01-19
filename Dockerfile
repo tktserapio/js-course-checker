@@ -1,5 +1,5 @@
 # Use a lightweight Node.js image that supports installing packages
-FROM node:23-bullseye-slim
+FROM node:18-bullseye-slim
 
 # Install dependencies to get Chrome running
 RUN apt-get update && apt-get install -y \
