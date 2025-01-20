@@ -11,7 +11,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/search", async (req, res) => {
-  const course = req.query.course || "CSCI0100";
+  let rawInput = req.query.course || "CSCI 0190";
+  let noSpaces = rawInput.replace(/\s+/g, "");
+  let course = noSpaces.slice(0, 4).toUpperCase() + " " + noSpaces.slice(4);
 
   // Configure headless Chrome
   const options = new chrome.Options()
