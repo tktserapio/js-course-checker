@@ -111,7 +111,7 @@ app.get("/search", async (req, res) => {
 
     if (!courseFound) {
       return res.status(404).json({
-        error: `Course "${course}" not found or no free sections available.`,
+        error: `Course "${course}" not found.`,
       });
     }
     res.json({ course, freeSections });

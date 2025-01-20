@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Course Scraper</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Course Section Scraper</h1>
-    <form id="course-form">
-      <label for="course-input">Enter Course Code:</label>
-      <input type="text" id="course-input" placeholder="e.g. CSCI 0190" required />
-      <button type="submit">Search</button>
-    </form>
-    <div id="results"></div>
-  </div>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CourseChecker@Brown</title>
+    <link href = "style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="left-box">
+        <h1>CourseChecker@Brown</h1>
+        <form id="course-form">
+          <label for="course-input">Enter Course Code:</label>
+          <input
+            type="text"
+            id="course-input"
+            placeholder="e.g. CSCI 0190"
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+
+      <div class="right-box" id="results"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
