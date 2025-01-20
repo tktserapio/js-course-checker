@@ -1,30 +1,25 @@
-# Use a lightweight Node.js image that supports installing packages
+# Use a slim Node.js image
 FROM node:18-bullseye-slim
 
-# Install dependencies to get Chrome running
+# Install dependencies for Chrome + fonts
 RUN apt-get update && apt-get install -y \
-    wget \
-    gnupg \
-    ca-certificates \
-    # Install Chromium and Chromium driver
     chromium \
     chromium-driver \
+    fonts-liberation \
+    # ... any other needed libs
   && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory in the container
+# Set workdir
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
+# Copy package info & install
 COPY package*.json ./
-
-# Install NPM dependencies
 RUN npm install --omit=dev
 
-# Copy the rest of your code into the container
+# Copy the rest
 COPY . .
 
-# Expose the port (if you run locally, not strictly needed on Render)
+# Expose port
 EXPOSE 3000
 
-# Start the app
 CMD ["node", "app.js"]
